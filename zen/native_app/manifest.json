@@ -1,7 +1,7 @@
 {
-    "name": "caelestiafox",
-    "description": "Native app for CaelestiaFox extension.",
-    "path": "{{ $lib }}/caelestiafox",
-    "type": "stdio",
-    "allowed_extensions": ["caelestiafox@caelestia.org"]
+  "name": "caelestiafox",
+  "description": "Native app for CaelestiaFox extension.",
+  "path": "/home/beardy/.local/lib/caelestia/caelestiafox",
+  "type": "stdio",
+  "allowed_extensions": ["caelestiafox@caelestia.org"]
 }
