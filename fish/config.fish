@@ -56,7 +56,7 @@ alias lt 'eza -aT --color=always --group-directories-first --icons' # tree listi
 alias l. 'eza -ald --color=always --group-directories-first --icons .*' # show only dotfiles
 
 # Replace some more things with better alternatives
-alias cat 'bat --style header --style snip --style changes --style header'
+abbr cat 'bat --style header,snip,changes'
 if not test -x /usr/bin/yay; and test -x /usr/bin/paru
     alias yay paru
 end
@@ -108,6 +108,13 @@ alias rip 'expac --timefmt="%Y-%m-%d %T" "%l\t%n %v" | sort | tail -200 | nl'
 alias n 'nvim .'
 
 ## Run fastfetch if session is interactive
-if status --is-interactive && type -q fastfetch
-    fastfetch --config neofetch.jsonc
-end
+# if status --is-interactive && type -q fastfetch
+#     fastfetch --config neofetch.jsonc
+# end
+set PATH $HOME/Applications/platform-tools $PATH
+
+alias astronvim="NVIM_APPNAME=AstroNvim nvim"
+alias a="astronvim ."
+alias lazyvim="NVIM_APPNAME=LazyVim nvim"
+alias l="lazyvim ."
+/home/beardy/.local/bin/mise activate fish | source
