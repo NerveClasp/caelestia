@@ -1,5 +1,5 @@
 local vars = require("variables")
-local fn   = require("hyprland.functions")
+local fn = require("hyprland.functions")
 
 hl.on("hyprland.start", function()
     -- Keyring and auth
@@ -27,6 +27,10 @@ hl.on("hyprland.start", function()
 
     -- Start shell
     hl.exec_cmd("caelestia shell -d")
+
+    -- My custom configs
+    hl.exec_cmd("caelestia scheme set -n dynamic")
+    hl.exec_cmd("caelestia wallpaper -r " .. vars.wallpapersFolder)
 end)
 
 -- Resizer listener

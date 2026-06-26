@@ -1,5 +1,7 @@
 local vars = require("variables")
-local fn   = require("hyprland.functions")
+local fn = require("hyprland.functions")
+
+-- @TODO: update these
 
 -- Launcher
 hl.bind("SUPER + SUPER_L", hl.dsp.global("caelestia:launcher"), { release = true })
@@ -110,7 +112,9 @@ hl.bind(vars.kbWindowPip, function()
     local a = hl.get_active_window()
     if a then
         local pip = fn.move_actions(a) or {}
-        if not a.floating then table.insert(pip, 1, hl.dsp.window.float()) end
+        if not a.floating then
+            table.insert(pip, 1, hl.dsp.window.float())
+        end
         table.insert(pip, hl.dsp.window.pin({ action = "on", window = "address:" .. a.address }))
 
         for _, x in ipairs(pip) do
@@ -154,8 +158,11 @@ hl.bind("SUPER + SHIFT + M", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK
 hl.bind(
     "XF86AudioRaiseVolume",
     hl.dsp.exec_cmd(
-        "wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume -l " ..
-        (vars.volumeMax / 100) .. " @DEFAULT_AUDIO_SINK@ " .. vars.volumeStep .. "%+"
+        "wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume -l "
+            .. (vars.volumeMax / 100)
+            .. " @DEFAULT_AUDIO_SINK@ "
+            .. vars.volumeStep
+            .. "%+"
     ),
     { locked = true, repeating = true }
 )
@@ -184,8 +191,8 @@ hl.bind(
 hl.bind(
     "SUPER + ALT + F12",
     hl.dsp.exec_cmd(
-        "notify-send -u low -i dialog-information-symbolic 'Test notification' " ..
-        [["Here's a really long message to test truncation and wrapping\nYou can middle click or flick this notification to dismiss it!"]] ..
-        " -a 'Shell' -A 'Test1=I got it!' -A 'Test2=Another action'"
+        "notify-send -u low -i dialog-information-symbolic 'Test notification' "
+            .. [["Here's a really long message to test truncation and wrapping\nYou can middle click or flick this notification to dismiss it!"]]
+            .. " -a 'Shell' -A 'Test1=I got it!' -A 'Test2=Another action'"
     )
 )

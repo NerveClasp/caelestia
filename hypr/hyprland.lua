@@ -1,5 +1,5 @@
-local home   = os.getenv("HOME")
-local hypr   = home .. "/.config/hypr"
+local home = os.getenv("HOME")
+local hypr = home .. "/.config/hypr"
 package.path = package.path .. ";" .. home .. "/.config/caelestia/?.lua"
 
 -- Create a file if it doesn't exist, optionally with initial content
@@ -13,7 +13,9 @@ local function maybe_create(file, content)
 
     f = io.open(file, "w")
     if f then
-        if content then f:write(content) end
+        if content then
+            f:write(content)
+        end
         f:close()
     end
 end
@@ -27,7 +29,9 @@ local function maybe_copy(src, dst)
     end
 
     local input = io.open(src, "r")
-    if not input then return end
+    if not input then
+        return
+    end
 
     out = io.open(dst, "w")
     if out then
@@ -51,11 +55,29 @@ if type(overrides) == "table" then
 end
 
 -- Default monitor conf
+-- hl.monitor({
+--     output   = "",
+--     mode     = "preferred",
+--     position = "auto",
+--     scale    = 1,
+-- })
 hl.monitor({
-    output   = "",
-    mode     = "preferred",
-    position = "auto",
-    scale    = 1,
+    output = "eDP-1",
+    mode = "1920x1080@300",
+    position = "0x0",
+    scale = 1,
+})
+hl.monitor({
+    output = "DP-1",
+    mode = "3440x1440@120",
+    position = "1920x0",
+    scale = 1,
+})
+hl.monitor({
+    output = "HDMI-A-1",
+    mode = "3440x1440@100",
+    position = "1920x0",
+    scale = 1,
 })
 
 -- Configs
