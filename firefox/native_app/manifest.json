@@ -1,0 +1,15 @@
+{
+<<<<<<< HEAD:zen/native_app/manifest.json
+  "name": "caelestiafox",
+  "description": "Native app for CaelestiaFox extension.",
+  "path": "/home/beardy/.local/lib/caelestia/caelestiafox",
+  "type": "stdio",
+  "allowed_extensions": ["caelestiafox@caelestia.org"]
+=======
+    "name": "caelestiafox",
+    "description": "Native app for CaelestiaFox extension.",
+    "path": "/usr/lib/caelestia/caelestiafox",
+    "type": "stdio",
+    "allowed_extensions": ["caelestiafox@caelestia.org"]
+>>>>>>> upstream/main:firefox/native_app/manifest.json
+}
