@@ -1,6 +1,6 @@
 local scheme = require("scheme.current")
 
-return {
+local M = {
     ------------------
     ---- HYPRLAND ----
     ------------------
@@ -47,9 +47,9 @@ return {
     windowOpacity = 0.95,
     windowRounding = 16,
     windowBorderSize = 3,
-    -- @TODO: change these
-    activeWindowBorderColour = "rgba(" .. scheme.primary .. "e6)",
-    inactiveWindowBorderColour = "rgba(" .. scheme.onSurfaceVariant .. "11)",
+    borderGradientAngle = 180,
+    activeBorderAlpha = "ef",
+    inactiveBorderAlpha = "33",
 
     -- Misc
     volumeStep = 2,
@@ -160,3 +160,42 @@ return {
     -- kbLock = "SUPER + L",
     -- kbRestoreLock = "SUPER + ALT + L",
 }
+
+M.activeWindowBorderColour1 = "rgba(" .. scheme.primary .. M.activeBorderAlpha .. ")"
+M.activeWindowBorderColour2 = "rgba(" .. scheme.secondary .. M.activeBorderAlpha .. ")"
+M.inactiveWindowBorderColour1 = "rgba(" .. scheme.onSurfaceVariant .. M.inactiveBorderAlpha .. ")"
+M.inactiveWindowBorderColour2 = "rgba(" .. scheme.surfaceDim .. M.inactiveBorderAlpha .. ")"
+
+M.activeWindowBorderColour = {
+    colors = {
+        M.activeWindowBorderColour1,
+        M.activeWindowBorderColour1,
+        "rgba(ff00ff" .. scheme.activeAlpha .. ")",
+        "rgba(0000ff" .. scheme.activeAlpha .. ")",
+        "rgba(00ffff" .. scheme.activeAlpha .. ")",
+        "rgba(00ff00" .. scheme.activeAlpha .. ")",
+        "rgba(ffff00" .. scheme.activeAlpha .. ")",
+        "rgba(ff0000" .. scheme.activeAlpha .. ")",
+        M.activeWindowBorderColour2,
+        M.activeWindowBorderColour2,
+    },
+    angle = M.borderGradientAngle,
+}
+
+M.inactiveWindowBorderColour = {
+    colors = {
+        M.inactiveWindowBorderColour1,
+        M.inactiveWindowBorderColour1,
+        "rgba(ff0000" .. scheme.inactiveAlpha .. ")",
+        "rgba(ffff00" .. scheme.inactiveAlpha .. ")",
+        "rgba(00ff00" .. scheme.inactiveAlpha .. ")",
+        "rgba(00ffff" .. scheme.inactiveAlpha .. ")",
+        "rgba(0000ff" .. scheme.inactiveAlpha .. ")",
+        "rgba(ff00ff" .. scheme.inactiveAlpha .. ")",
+        M.inactiveWindowBorderColour2,
+        M.inactiveWindowBorderColour2,
+    },
+    angle = M.borderGradientAngle,
+}
+
+return M
